@@ -1,0 +1,79 @@
+{
+  "RootObject": {
+    "__guid": "f59b1576-6ee7-4c6f-9499-58fbd5fec965",
+    "Flags": 0,
+    "Name": "prop",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "PropObject",
+        "__guid": "8ea1532f-430b-41cf-bcdd-9b5b8363f701",
+        "PropCollider": {
+          "_type": "component",
+          "component_id": "a1268a9b-a68a-4a5f-ae4f-72d967b1a6fa",
+          "go": "f59b1576-6ee7-4c6f-9499-58fbd5fec965",
+          "component_type": "ModelCollider"
+        },
+        "PropRenderer": {
+          "_type": "component",
+          "component_id": "41ca276b-7a26-41d8-adf1-1df687b24b2c",
+          "go": "f59b1576-6ee7-4c6f-9499-58fbd5fec965",
+          "component_type": "ModelRenderer"
+        }
+      },
+      {
+        "__type": "Sandbox.ModelRenderer",
+        "__guid": "41ca276b-7a26-41d8-adf1-1df687b24b2c",
+        "BodyGroups": 18446744073709551615,
+        "CreateAttachments": false,
+        "RenderOptions": {
+          "GameLayer": true,
+          "OverlayLayer": false,
+          "BloomLayer": false,
+          "AfterUILayer": false
+        },
+        "RenderType": "On",
+        "Tint": "1,1,1,1"
+      },
+      {
+        "__type": "Sandbox.ModelCollider",
+        "__guid": "a1268a9b-a68a-4a5f-ae4f-72d967b1a6fa",
+        "IsTrigger": false,
+        "Static": true,
+        "SurfaceVelocity": "0,0,0"
+      }
+    ],
+    "Children": [],
+    "__variables": [],
+    "__properties": {
+      "FixedUpdateFrequency": 50,
+      "MaxFixedUpdates": 5,
+      "NetworkFrequency": 30,
+      "NetworkInterpolation": true,
+      "PhysicsSubSteps": 1,
+      "ThreadedAnimation": true,
+      "TimeScale": 1,
+      "UseFixedUpdate": true,
+      "Metadata": {},
+      "NavMesh": {
+        "Enabled": false,
+        "IncludeStaticBodies": true,
+        "IncludeKeyframedBodies": true,
+        "EditorAutoUpdate": true,
+        "AgentHeight": 64,
+        "AgentRadius": 16,
+        "AgentStepSize": 18,
+        "AgentMaxSlope": 40,
+        "ExcludedBodies": "",
+        "IncludedBodies": ""
+      }
+    }
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

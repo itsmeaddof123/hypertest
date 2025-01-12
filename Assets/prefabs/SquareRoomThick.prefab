@@ -1,0 +1,983 @@
+{
+  "RootObject": {
+    "__guid": "8944bbce-8e67-4b7c-8624-953ac031be5c",
+    "Flags": 0,
+    "Name": "squareroomthick",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "RoomObject",
+        "__guid": "9c42b0ba-5a77-466f-83ab-bd1110d2a32d",
+        "Doors": [
+          {
+            "_type": "gameobject",
+            "go": "8a045972-c220-41ed-a42a-ca322b9266dc"
+          },
+          {
+            "_type": "gameobject",
+            "go": "4a52658a-55da-4af7-afa1-dec0578d1543"
+          },
+          {
+            "_type": "gameobject",
+            "go": "3b9a0d74-cbb5-43a6-a905-fa6950090de7"
+          },
+          {
+            "_type": "gameobject",
+            "go": "48017690-9cc9-44fb-9f0f-6eb4ca91bc91"
+          }
+        ],
+        "PlaneRenderer": {
+          "_type": "component",
+          "component_id": "19b1fb61-100d-4aeb-a427-8819fd447cf0",
+          "go": "8b7d04a5-80ed-4a50-83d4-31d51ad63b84",
+          "component_type": "ModelRenderer"
+        },
+        "PlaneRenderers": [
+          {
+            "_type": "component",
+            "component_id": "f827617d-8604-4ef5-857c-348824aff887",
+            "go": "111a0e45-1361-4fda-8db8-35fa3caa7748",
+            "component_type": "ModelRenderer"
+          },
+          {
+            "_type": "component",
+            "component_id": "5baf4346-9d1e-4a33-92fd-74ea72a41902",
+            "go": "61a664d0-9ae4-44c2-a64f-e6a2ce9b0b5e",
+            "component_type": "ModelRenderer"
+          },
+          {
+            "_type": "component",
+            "component_id": "19b1fb61-100d-4aeb-a427-8819fd447cf0",
+            "go": "8b7d04a5-80ed-4a50-83d4-31d51ad63b84",
+            "component_type": "ModelRenderer"
+          },
+          {
+            "_type": "component",
+            "component_id": "612cbfa2-dde3-4e7f-95d4-18c43bd2a1d2",
+            "go": "a84489bb-2fee-452c-8b2a-85c83a04e786",
+            "component_type": "ModelRenderer"
+          }
+        ],
+        "RenderList": {
+          "_type": "gameobject",
+          "go": "3711e9e1-a284-43c6-95c1-7284dc5f6b76"
+        },
+        "Room": {
+          "_type": "gameobject",
+          "go": "607d0360-d2ac-4f58-953f-af4da32ee14f"
+        },
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
+      }
+    ],
+    "Children": [
+      {
+        "__guid": "607d0360-d2ac-4f58-953f-af4da32ee14f",
+        "Flags": 0,
+        "Name": "Room",
+        "Enabled": true,
+        "Children": [
+          {
+            "__guid": "3711e9e1-a284-43c6-95c1-7284dc5f6b76",
+            "Flags": 0,
+            "Name": "RenderList",
+            "Enabled": true,
+            "Children": [
+              {
+                "__guid": "4053a239-7dbf-43b4-a9d8-3c3615a774b2",
+                "Flags": 0,
+                "Name": "Floor",
+                "Position": "0,0,-25",
+                "Scale": "5,5,1",
+                "Tags": "do_shadow",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "e972505c-5ed1-4905-a1c6-74692809e6c4",
+                    "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
+                    "Model": "models/dev/box.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderType": "On",
+                    "Tint": "0.75,0.75,0.75,1"
+                  },
+                  {
+                    "__type": "Sandbox.BoxCollider",
+                    "__guid": "0ec2e1f6-fd75-4363-bb57-ba0a229e0829",
+                    "Center": "0,0,0",
+                    "Friction": null,
+                    "IsTrigger": false,
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "OnObjectTriggerEnter": null,
+                    "OnObjectTriggerExit": null,
+                    "OnTriggerEnter": null,
+                    "OnTriggerExit": null,
+                    "Scale": "50,50,50",
+                    "Static": false,
+                    "Surface": null,
+                    "SurfaceVelocity": "0,0,0"
+                  }
+                ]
+              },
+              {
+                "__guid": "789fcf89-461c-4d66-bd1e-2dd658710a67",
+                "Flags": 0,
+                "Name": "3Wall",
+                "Position": "87.5,-118.75,75",
+                "Scale": "1.5,0.25,3",
+                "Tags": "do_shadow",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "46e8cc3f-3705-4d77-86fc-4416138b11a5",
+                    "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
+                    "Model": "models/dev/box.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderType": "On",
+                    "Tint": "1,0,0,1"
+                  },
+                  {
+                    "__type": "Sandbox.BoxCollider",
+                    "__guid": "0a9347c8-008c-469f-bdce-ae24a9e657a0",
+                    "Center": "0,0,0",
+                    "Friction": null,
+                    "IsTrigger": false,
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "OnObjectTriggerEnter": null,
+                    "OnObjectTriggerExit": null,
+                    "OnTriggerEnter": null,
+                    "OnTriggerExit": null,
+                    "Scale": "50,50,50",
+                    "Static": false,
+                    "Surface": null,
+                    "SurfaceVelocity": "0,0,0"
+                  }
+                ]
+              },
+              {
+                "__guid": "48017690-9cc9-44fb-9f0f-6eb4ca91bc91",
+                "Flags": 0,
+                "Name": "3Door",
+                "Position": "0,-118.75,75",
+                "Scale": "2,0.25,3",
+                "Tags": "do_shadow",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "44326fb7-96a0-4a64-9786-421c224f80f2",
+                    "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
+                    "Model": "models/dev/box.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderType": "On",
+                    "Tint": "1,0,0,1"
+                  },
+                  {
+                    "__type": "Sandbox.BoxCollider",
+                    "__guid": "a831c8f5-831e-4054-b1b1-5eebe069c3bc",
+                    "Center": "0,0,0",
+                    "Friction": null,
+                    "IsTrigger": false,
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "OnObjectTriggerEnter": null,
+                    "OnObjectTriggerExit": null,
+                    "OnTriggerEnter": null,
+                    "OnTriggerExit": null,
+                    "Scale": "50,50,50",
+                    "Static": false,
+                    "Surface": null,
+                    "SurfaceVelocity": "0,0,0"
+                  }
+                ]
+              },
+              {
+                "__guid": "835aa36a-11ac-4b2f-be2a-a400fcfde453",
+                "Flags": 0,
+                "Name": "3Wall",
+                "Position": "-87.5,-118.75,75",
+                "Scale": "1.5,0.25,3",
+                "Tags": "do_shadow",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "91200fe1-7e7d-4522-b844-34180f85a3ed",
+                    "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
+                    "Model": "models/dev/box.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderType": "On",
+                    "Tint": "1,0,0,1"
+                  },
+                  {
+                    "__type": "Sandbox.BoxCollider",
+                    "__guid": "6f65900b-1b8b-40b5-800a-c41059a9942d",
+                    "Center": "0,0,0",
+                    "Friction": null,
+                    "IsTrigger": false,
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "OnObjectTriggerEnter": null,
+                    "OnObjectTriggerExit": null,
+                    "OnTriggerEnter": null,
+                    "OnTriggerExit": null,
+                    "Scale": "50,50,50",
+                    "Static": false,
+                    "Surface": null,
+                    "SurfaceVelocity": "0,0,0"
+                  }
+                ]
+              },
+              {
+                "__guid": "627ff2dd-44da-4e3c-b588-12edcecedfe0",
+                "Flags": 0,
+                "Name": "2Wall",
+                "Position": "-118.75,-87.5,75",
+                "Scale": "0.25,1.5,3",
+                "Tags": "do_shadow",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "4d453c18-0a0e-4787-b6f8-562dcf4d4064",
+                    "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
+                    "Model": "models/dev/box.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderType": "On",
+                    "Tint": "0,1,0,1"
+                  },
+                  {
+                    "__type": "Sandbox.BoxCollider",
+                    "__guid": "16124700-1b72-4492-a699-4c7bff45b84e",
+                    "Center": "0,0,0",
+                    "Friction": null,
+                    "IsTrigger": false,
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "OnObjectTriggerEnter": null,
+                    "OnObjectTriggerExit": null,
+                    "OnTriggerEnter": null,
+                    "OnTriggerExit": null,
+                    "Scale": "50,50,50",
+                    "Static": false,
+                    "Surface": null,
+                    "SurfaceVelocity": "0,0,0"
+                  }
+                ]
+              },
+              {
+                "__guid": "3b9a0d74-cbb5-43a6-a905-fa6950090de7",
+                "Flags": 0,
+                "Name": "2Door",
+                "Position": "-118.75,0,75",
+                "Scale": "0.25,2,3",
+                "Tags": "do_shadow",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "0352783f-e5a4-48cb-94c2-e7120c3b06bf",
+                    "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
+                    "Model": "models/dev/box.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderType": "On",
+                    "Tint": "0,1,0,1"
+                  },
+                  {
+                    "__type": "Sandbox.BoxCollider",
+                    "__guid": "32990981-1cba-42b2-86d6-676c51524236",
+                    "Center": "0,0,0",
+                    "Friction": null,
+                    "IsTrigger": false,
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "OnObjectTriggerEnter": null,
+                    "OnObjectTriggerExit": null,
+                    "OnTriggerEnter": null,
+                    "OnTriggerExit": null,
+                    "Scale": "50,50,50",
+                    "Static": false,
+                    "Surface": null,
+                    "SurfaceVelocity": "0,0,0"
+                  }
+                ]
+              },
+              {
+                "__guid": "ceeaf469-4548-49c8-a415-f8d002391cb9",
+                "Flags": 0,
+                "Name": "2Wall",
+                "Position": "-118.75,87.5,75",
+                "Scale": "0.25,1.5,3",
+                "Tags": "do_shadow",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "ed1e96ab-32b8-44eb-992f-435dcb614a13",
+                    "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
+                    "Model": "models/dev/box.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderType": "On",
+                    "Tint": "0,1,0,1"
+                  },
+                  {
+                    "__type": "Sandbox.BoxCollider",
+                    "__guid": "8ffc28c0-af6e-431e-954d-f1df39e7caea",
+                    "Center": "0,0,0",
+                    "Friction": null,
+                    "IsTrigger": false,
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "OnObjectTriggerEnter": null,
+                    "OnObjectTriggerExit": null,
+                    "OnTriggerEnter": null,
+                    "OnTriggerExit": null,
+                    "Scale": "50,50,50",
+                    "Static": false,
+                    "Surface": null,
+                    "SurfaceVelocity": "0,0,0"
+                  }
+                ]
+              },
+              {
+                "__guid": "90f825f2-3f9b-40ea-a7fc-cbbc3cebdf43",
+                "Flags": 0,
+                "Name": "1Wall",
+                "Position": "-87.5,118.75,75",
+                "Scale": "1.5,0.25,3",
+                "Tags": "do_shadow",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "4904af2a-8555-4d04-87e3-cfe353ec783f",
+                    "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
+                    "Model": "models/dev/box.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderType": "On",
+                    "Tint": "0,0,1,1"
+                  },
+                  {
+                    "__type": "Sandbox.BoxCollider",
+                    "__guid": "0a3ebe5c-53bc-41dd-ab4a-d2a2bb9899f8",
+                    "Center": "0,0,0",
+                    "Friction": null,
+                    "IsTrigger": false,
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "OnObjectTriggerEnter": null,
+                    "OnObjectTriggerExit": null,
+                    "OnTriggerEnter": null,
+                    "OnTriggerExit": null,
+                    "Scale": "50,50,50",
+                    "Static": false,
+                    "Surface": null,
+                    "SurfaceVelocity": "0,0,0"
+                  }
+                ]
+              },
+              {
+                "__guid": "4a52658a-55da-4af7-afa1-dec0578d1543",
+                "Flags": 0,
+                "Name": "1Door",
+                "Position": "0,118.75,75",
+                "Scale": "2,0.25,3",
+                "Tags": "do_shadow",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "5457324a-1a2f-4729-ac4f-cac115be4f82",
+                    "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
+                    "Model": "models/dev/box.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderType": "On",
+                    "Tint": "0,0,1,1"
+                  },
+                  {
+                    "__type": "Sandbox.BoxCollider",
+                    "__guid": "2d6e087b-8ff3-40a0-b78d-239c50fce45f",
+                    "Center": "0,0,0",
+                    "Friction": null,
+                    "IsTrigger": false,
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "OnObjectTriggerEnter": null,
+                    "OnObjectTriggerExit": null,
+                    "OnTriggerEnter": null,
+                    "OnTriggerExit": null,
+                    "Scale": "50,50,50",
+                    "Static": false,
+                    "Surface": null,
+                    "SurfaceVelocity": "0,0,0"
+                  }
+                ]
+              },
+              {
+                "__guid": "781fa47e-dabd-4710-87e6-d4af3c6a2ca9",
+                "Flags": 0,
+                "Name": "1Wall",
+                "Position": "87.5,118.75,75",
+                "Scale": "1.5,0.25,3",
+                "Tags": "do_shadow",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "7e0fb56c-35a7-40a9-b8a7-5a3d4355da96",
+                    "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
+                    "Model": "models/dev/box.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderType": "On",
+                    "Tint": "0,0,1,1"
+                  },
+                  {
+                    "__type": "Sandbox.BoxCollider",
+                    "__guid": "685609a8-f5e9-46fc-a699-698ebc1af3b8",
+                    "Center": "0,0,0",
+                    "Friction": null,
+                    "IsTrigger": false,
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "OnObjectTriggerEnter": null,
+                    "OnObjectTriggerExit": null,
+                    "OnTriggerEnter": null,
+                    "OnTriggerExit": null,
+                    "Scale": "50,50,50",
+                    "Static": false,
+                    "Surface": null,
+                    "SurfaceVelocity": "0,0,0"
+                  }
+                ]
+              },
+              {
+                "__guid": "14cea130-0292-4214-b5aa-c6fe4df60d7e",
+                "Flags": 0,
+                "Name": "0Wall",
+                "Position": "118.75,-87.5,75",
+                "Scale": "0.25,1.5,3",
+                "Tags": "do_shadow",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "0b93f022-20b0-4cce-91e3-42a11bebf058",
+                    "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
+                    "Model": "models/dev/box.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderType": "On",
+                    "Tint": "1,1,0,1"
+                  },
+                  {
+                    "__type": "Sandbox.BoxCollider",
+                    "__guid": "f3c80976-3db3-4dae-b5b4-69428964db2b",
+                    "Center": "0,0,0",
+                    "Friction": null,
+                    "IsTrigger": false,
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "OnObjectTriggerEnter": null,
+                    "OnObjectTriggerExit": null,
+                    "OnTriggerEnter": null,
+                    "OnTriggerExit": null,
+                    "Scale": "50,50,50",
+                    "Static": false,
+                    "Surface": null,
+                    "SurfaceVelocity": "0,0,0"
+                  }
+                ]
+              },
+              {
+                "__guid": "8a045972-c220-41ed-a42a-ca322b9266dc",
+                "Flags": 0,
+                "Name": "0Door",
+                "Position": "118.75,0,75",
+                "Scale": "0.25,2,3",
+                "Tags": "do_shadow",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "32902b0e-268d-4ced-8911-330536f8ce0a",
+                    "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
+                    "Model": "models/dev/box.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderType": "On",
+                    "Tint": "1,1,0,1"
+                  },
+                  {
+                    "__type": "Sandbox.BoxCollider",
+                    "__guid": "5c5340a5-4b44-4844-82ad-6d268f38e482",
+                    "Center": "0,0,0",
+                    "Friction": null,
+                    "IsTrigger": false,
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "OnObjectTriggerEnter": null,
+                    "OnObjectTriggerExit": null,
+                    "OnTriggerEnter": null,
+                    "OnTriggerExit": null,
+                    "Scale": "50,50,50",
+                    "Static": false,
+                    "Surface": null,
+                    "SurfaceVelocity": "0,0,0"
+                  }
+                ]
+              },
+              {
+                "__guid": "564944c9-ab81-4760-bb20-456723315353",
+                "Flags": 0,
+                "Name": "0Wall",
+                "Position": "118.75,87.5,75",
+                "Scale": "0.25,1.5,3",
+                "Tags": "do_shadow",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "da5cd984-db29-49f3-b60f-fdb0b454a438",
+                    "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
+                    "Model": "models/dev/box.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": true,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderType": "On",
+                    "Tint": "1,1,0,1"
+                  },
+                  {
+                    "__type": "Sandbox.BoxCollider",
+                    "__guid": "374a0897-c9c2-4432-a5f1-49d4ede15e9a",
+                    "Center": "0,0,0",
+                    "Friction": null,
+                    "IsTrigger": false,
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "OnObjectTriggerEnter": null,
+                    "OnObjectTriggerExit": null,
+                    "OnTriggerEnter": null,
+                    "OnTriggerExit": null,
+                    "Scale": "50,50,50",
+                    "Static": false,
+                    "Surface": null,
+                    "SurfaceVelocity": "0,0,0"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "__guid": "c8d2226b-c473-40c8-a622-7872e88461c6",
+            "Flags": 0,
+            "Name": "PlaneMask",
+            "Enabled": true,
+            "Children": [
+              {
+                "__guid": "111a0e45-1361-4fda-8db8-35fa3caa7748",
+                "Flags": 0,
+                "Name": "0PlaneMask",
+                "Position": "125,0,75",
+                "Rotation": "0,0.7071067,0,0.7071068",
+                "Scale": "1.5,2.5,1",
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "f827617d-8604-4ef5-857c-348824aff887",
+                    "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
+                    "Model": "models/dev/plane.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": false,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderType": "Off",
+                    "Tint": "1,1,1,1"
+                  }
+                ]
+              },
+              {
+                "__guid": "61a664d0-9ae4-44c2-a64f-e6a2ce9b0b5e",
+                "Flags": 0,
+                "Name": "1PlaneMask",
+                "Position": "0,125,75",
+                "Rotation": "-0.5,0.5,0.5,0.5",
+                "Scale": "1.5,2.5,1",
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "5baf4346-9d1e-4a33-92fd-74ea72a41902",
+                    "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
+                    "Model": "models/dev/plane.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": false,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderType": "Off",
+                    "Tint": "1,1,1,1"
+                  }
+                ]
+              },
+              {
+                "__guid": "8b7d04a5-80ed-4a50-83d4-31d51ad63b84",
+                "Flags": 0,
+                "Name": "2PlaneMask",
+                "Position": "-125,0,75",
+                "Rotation": "-0.7071068,-0.00000003090862,0.7071068,-0.00000003090862",
+                "Scale": "1.5,2.5,1",
+                "Enabled": true,
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "19b1fb61-100d-4aeb-a427-8819fd447cf0",
+                    "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
+                    "Model": "models/dev/plane.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": false,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderType": "Off",
+                    "Tint": "1,1,1,1"
+                  }
+                ]
+              },
+              {
+                "__guid": "a84489bb-2fee-452c-8b2a-85c83a04e786",
+                "Flags": 0,
+                "Name": "3PlaneMask",
+                "Position": "0,-125,75",
+                "Rotation": "0.5,0.5,-0.5,0.5",
+                "Scale": "1.5,2.5,1",
+                "Components": [
+                  {
+                    "__type": "Sandbox.ModelRenderer",
+                    "__guid": "612cbfa2-dde3-4e7f-95d4-18c43bd2a1d2",
+                    "BodyGroups": 18446744073709551615,
+                    "CreateAttachments": false,
+                    "MaterialGroup": null,
+                    "MaterialOverride": null,
+                    "Model": "models/dev/plane.vmdl",
+                    "OnComponentDestroy": null,
+                    "OnComponentDisabled": null,
+                    "OnComponentEnabled": null,
+                    "OnComponentFixedUpdate": null,
+                    "OnComponentStart": null,
+                    "OnComponentUpdate": null,
+                    "RenderOptions": {
+                      "GameLayer": false,
+                      "OverlayLayer": false,
+                      "BloomLayer": false,
+                      "AfterUILayer": false
+                    },
+                    "RenderType": "Off",
+                    "Tint": "1,1,1,1"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "__variables": [],
+    "__properties": {
+      "FixedUpdateFrequency": 50,
+      "MaxFixedUpdates": 5,
+      "NetworkFrequency": 30,
+      "NetworkInterpolation": true,
+      "PhysicsSubSteps": 1,
+      "ThreadedAnimation": true,
+      "TimeScale": 1,
+      "UseFixedUpdate": true,
+      "Metadata": {},
+      "NavMesh": {
+        "Enabled": false,
+        "IncludeStaticBodies": true,
+        "IncludeKeyframedBodies": true,
+        "EditorAutoUpdate": true,
+        "AgentHeight": 64,
+        "AgentRadius": 16,
+        "AgentStepSize": 18,
+        "AgentMaxSlope": 40,
+        "ExcludedBodies": "",
+        "IncludedBodies": ""
+      }
+    }
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

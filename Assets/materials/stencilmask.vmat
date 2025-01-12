@@ -1,0 +1,17 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "shaders/stencilmask.shader"
+
+	StencilReadVal "0.000"
+	StencilRefVal "0.000"
+	StencilWriteVal "0.000"
+
+	DynamicParams
+	{
+		StencilReadVal "stencil_read"
+		StencilRefVal "stencil_ref"
+		StencilWriteVal "stencil_write"
+	}
+}
