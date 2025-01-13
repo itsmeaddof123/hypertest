@@ -130,22 +130,22 @@
 
 	// Room Choice
 	private string RoomChoiceDescription = "The thickness of the walls in each room. Thick walls will improve performance. No walls will decrease performance and may result in unpredictable buggy behavior.";
-	private string RoomChoiceName = "Thin";
+	private string RoomChoiceName;
 	private List<string> RoomChoiceNames = new List<string> { "None", "Thin", "Thick" };
 	private void RoomChoiceDown()
 	{
 		GameConfig.RoomChoice = (GameConfig.RoomChoice + 2) % 3;
-		RoomChoiceName =RoomChoiceNames[GameConfig.RoomChoice];
+		RoomChoiceName = RoomChoiceNames[GameConfig.RoomChoice];
 	}
 	private void RoomChoiceUp()
 	{
 		GameConfig.RoomChoice = (GameConfig.RoomChoice + 1) % 3;
-		RoomChoiceName =RoomChoiceNames[GameConfig.RoomChoice];
+		RoomChoiceName = RoomChoiceNames[GameConfig.RoomChoice];
 	}
 
 	// Remove Dead Ends
 	private string RemoveDeadEndsDescription = "Whether or not to remove dead ends during room generation. Disabling this will decrease performance somewhat.";
-	private string RemoveDeadEndsStatus = "Enabled";
+	private string RemoveDeadEndsStatus;
 	private void RemoveDeadEndsToggle()
 	{
 		GameConfig.RemoveDeadEnds = !GameConfig.RemoveDeadEnds;
@@ -154,7 +154,7 @@
 
 	// Center Spawn
 	private string CenterSpawnDescription = "Whether or not to spawn in the center room. No impact on performance.";
-	private string CenterSpawnStatus = "Enabled";
+	private string CenterSpawnStatus;
 	private void CenterSpawnToggle()
 	{
 		GameConfig.CenterSpawn = !GameConfig.CenterSpawn;
@@ -209,6 +209,10 @@
 			return;
 		}
 		GameConfig = game_config_list[0];
+
+		RoomChoiceName = RoomChoiceNames[GameConfig.RoomChoice];
+		RemoveDeadEndsStatus = GameConfig.RemoveDeadEnds ? "Enabled" : "Disabled";
+		CenterSpawnStatus = GameConfig.CenterSpawn ? "Enabled" : "Disabled";
 	}
 
 	protected override int BuildHash()

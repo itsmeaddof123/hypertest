@@ -129,8 +129,7 @@ public sealed class GameManager : Component
 	//protected override void OnFixedUpdate()
 	protected override void OnUpdate()
 	{
-		// Check to switch scenes
-		if ( RoomsVisited.Count > 3 )
+		if ( Input.EscapePressed  )
 		{
 			Scene.LoadFromFile("scenes/setup.scene");
 			return;

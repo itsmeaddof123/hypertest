@@ -4,7 +4,7 @@
 @namespace Sandbox
 
 <root>
-	<div class="header"><p>More Info</p></div>
+	<div class="header"><p>NERD STUFF</p></div>
 	<div class="container">
 		<div class="body"><p>@Body</p></div>
 	</div>
@@ -17,7 +17,86 @@
 {
 	[Property] public GameObject StartObject { get; set; }
 
-	private string Body = "Normally, the answer is 4. Here, we can have as many as we want.\nThis is a simulation of a square tiling of a hyperbolic plane. If it is your first time, I encourage you to click Play and explore the world. You can press Escape to return here and adjust Settings: number of rooms per vertex, exploration mode, world size, and more. Read about the process in More Info.";
+	private string Body =
+		"Big math talk ahead. You've been warned.\n\n" +
+
+		"This project mixes topics in math like geometry, graph theory, and algebra with concepts in " +
+		"computer science/game design such as procedural generation and shader stencil buffers to create " +
+		"a simulation of a square tiling of a hyperbolic plane. But that's a lot of words. Let's start " +
+		"by explaining what that even is:\n\n" +
+
+		"The word we mathematicians use to describe our normal space is Euclidean. The one where four " +
+		"squares fit neatly around a corner. If you walked from one square room to the next, then made a " +
+		"90-degree turn to get to the next room, and continued until you got to your original room, the " +
+		"path you'd have traced would end up with four right angle turns.\n\n" +
+
+		"If you zoom out from the everyday and take a look at the world (literally the world), you can " +
+		"see another familiar type of geometry: Spherical. Once you sort out how you're defining a " +
+		"'straight' line (path along a great circle), you could could end up with a plane in which you " +
+		"can fit not four, but three squares around a corner. Imagine if you started on the equator of " +
+		"the Earth and then walked straight to the North Pole. Once you get there, make a 90-degree turn " +
+		"to the right and then continue walking straight. Eventually, you'll hit a different spot on the " +
+		"equator. Turn 90-degrees to the right once again and continue on, and you'll reach your starting " +
+		"point. This time, your path will be made up of three right angle turns.\n\n" + 
+
+		"Let's go the opposite direction. Imagine if you visited a space in which five square rooms could " +
+		"be placed around a single corner. Where five 90-degree turns would describe the path to traverse " +
+		"these rooms. Now, we've reached a Hyperbolic plane. Creating a simulation of a square tiling of " +
+		"a Hyperbolic plane was my goal for this project. There were multiple challenges to overcome to " +
+		"pull this off, and I'll list a few below.\n\n" +
+
+		"This project was made in an engine that operates in a Euclidean space. This means that at best, " +
+		"the tiling could be only an illusion. By using rooms that are square, I can't actually put five " +
+		"rooms around a corner. Instead, I decided to create a pseudo-hyperbolic space by allowing rooms " +
+		"to overlap when necessary.\n\n" + 
+
+		"Another limitation of this system is that storing the locations of rooms becomes very difficult. " +
+		"Walking 'north' and then 'east' puts me in a different room than walking 'east' and then 'north'. " +
+		"In fact, if there are five rooms around a corner, then walking around that corner back to the " +
+		"first room would end up putting that first room in a different location, and orientation! The " +
+		"solution for me was to center the world around the player, loading and moving and rotating rooms " +
+		"in real time, in relation to whichever room the player is currently in. Instead of storing some " +
+		"objective location for each room, I created a node-edge graph to represent the entire world so " +
+		"that each room would know which rooms were its neighbors, and in which direction. This allows for " +
+		"neighbor-by-neighbor loading of the world, all stemming from the player's current location.\n\n" +
+		
+		"The node-edge graph generation was actually deceptively simple. Start " +
+		"from one room and create four rooms to connect to it. For each of those new rooms, create new rooms " +
+		"to connect, and so on. It's just a branching tree. All you have to do is make sure existing rooms " +
+		"get connected once they fill up a corner. With that system in place, changing the number of rooms " +
+		"per corner was literally as simple as changing a single integer value.\n\n" +
+
+		"If rooms might overlap in game engine space, there's another problem. Two rooms in one location " +
+		"means their floors and walls and contents will all be visible at the same time! The answer to " +
+		"this puzzle piece was Stencil Buffer Shaders. The exact details are their own entire essay " +
+		"(catalogued in my dev log in the official discord), but to sum it up here, each room is given a " +
+		"mostly-unique number called a stencil buffer, and the contents of that room only render to the " +
+		"screen if the correct stencil buffer number is given - that number being determined by which " +
+		"series of doorways you are looking through. This allows you to look into the same room " +
+		"'location' from several different angles and see different actual rooms all in the same space.\n\n" +
+
+		"Last issue - How do I actually know which rooms I should be loading in? The room that is 'north', " +
+		"'east', 'north', and 'east' of my current room is definitely visible by looking down a diagonal " +
+		"line of doorways, but the room that is 'north', 'north', 'east', and 'east' is definitely going " +
+		"to be out of sight no matter where in my room I try to look. To answer this, I actually simulate " +
+		"casting rays from a square room at a bunch of different angles. Doing a little bit of algebra, I " +
+		"can figure out which sequence of doorways (represented as horizontal or vertical line segments) " +
+		"I pass through. This lets me algorithmically create a list of directions and is what enables me " +
+		"to have Render Distance as a setting.\n\n" +
+
+		"If you made it this far, that's awesome! Thanks for reading. My long-term goal in life is to become " +
+		"a professor of mathematics and a researcher of mathematics education. I believe the learning and " +
+		"teaching process can benefit a lot from creative implementations of technology, which is why I was " +
+		"so eager to work on this kind of project. I've been interested in the potential for a 3D Game Engine " +
+		"to be used as an educational tool for a long time, and I think s&box, though it is designed for games, " +
+		"actually shows a lot of promise a potential tool for creating educational modules like this.\n\n" +
+		"Imagine if instead of reading about probably theory in a statistics textbook, you simulated 10,000 " +
+		"coin tosses in real time here in s&box. Or instead of listening to a lecture about a random battle in " +
+		"a war from 250 years ago, you loaded up a virtual diorama of the battle and could explore each key " +
+		"moment. Or instead of simply memorizing chemical reactions that are too dangerous to perform in real " +
+		"life, you could conduct them safely in a contained sandbox and blow stuff up all you want. The list goes on.\n\n" +
+		
+		"Long story short, I think learning is cool, and I think doing it with modern tech could be even cooler.";
 
 	private void OnBack()
 	{

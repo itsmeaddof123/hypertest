@@ -24,7 +24,7 @@ InfoMenu
 	.container
 	{
 		overflow-y: scroll;
-		max-height: 50vh;
+		height: 70vh;
 		align-items: center;
 		flex-direction: column;
 		border: 1px solid rgb(201, 194, 216);
@@ -44,6 +44,7 @@ InfoMenu
 		margin-left: 2vw;
 		margin-right: 2vw;
 		margin-bottom: 1vh;
+		flex-shrink: 0;
 	}
 
 	.button
