@@ -1,0 +1,97 @@
+SettingsMenu
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgb(23, 29, 44);
+	color: rgb(201, 194, 216);
+	pointer-events: all;
+	font-family: Poppins;
+	align-items: center;
+	flex-direction: column;
+
+	.header
+	{
+		font-weight: bold;
+		font-size: 10vh;
+		margin-left: 2vw;
+		margin-right: 2vw;
+		margin-bottom: 1vh;
+	}
+
+	.body
+	{
+		font-size: 3vh;
+		white-space: pre-line;
+		margin-left: 4vw;
+		margin-right: 4vw;
+		margin-bottom: 1vh;
+	}
+
+	.settings
+	{
+		overflow-y: scroll;
+		max-height: 50vh;
+		align-items: center;
+		flex-direction: column;
+		border: 1px solid rgb(201, 194, 216);
+		margin-left: 2vw;
+		margin-left: 2vw;
+		margin-right: 2vw;
+		margin-bottom: 1vh;
+		padding-top: 1vh;
+	}
+
+	.setting
+	{
+		align-items: center;
+		flex-direction: column;
+		margin-bottom: 1vh;
+		flex-shrink: 0;
+	}
+
+	.settingsblock
+	{
+		align-items: center;
+		flex-direction: row;
+		font-size: 6vh;
+	}
+
+	.description
+	{
+		font-size: 3vh;
+		padding-bottom: 16px;
+		margin-left: 2vw;
+		margin-right: 2vw;
+	}
+
+	.settingsbutton
+	{
+		color: rgb(201, 194, 216);
+		text-shadow: 1px 1px 0 rgb(53, 47, 65),
+					-1px -1px 0 rgb(53, 47, 65),
+					1px -1px 0 rgb(53, 47, 65),
+					-1px 1px 0 rgb(53, 47, 65);
+		padding-left: 2vw;
+		padding-right: 2vw;
+		margin-left: 2vw;
+		margin-right: 2vw;
+		font-size: 6vh;
+		border: 1px solid rgb(201, 194, 216);
+	}
+
+	.button
+	{
+		color: rgb(201, 194, 216);
+		text-shadow: 1px 1px 0 rgb(53, 47, 65),
+					-1px -1px 0 rgb(53, 47, 65),
+					1px -1px 0 rgb(53, 47, 65),
+					-1px 1px 0 rgb(53, 47, 65);
+		padding-left: 2vw;
+		padding-right: 2vw;
+		font-size: 6vh;
+		border: 1px solid rgb(201, 194, 216);
+	}
+}

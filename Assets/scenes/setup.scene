@@ -10,13 +10,163 @@
         {
           "__type": "SceneLoader",
           "__guid": "3b7a6771-daf1-4a71-850f-216a44aa423c",
-          "Obj": null,
+          "GameConfigObject": {
+            "_type": "gameobject",
+            "go": "a3e04356-751f-40c2-ac83-6dbae2815dd4"
+          },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null
+        }
+      ]
+    },
+    {
+      "__guid": "a3e04356-751f-40c2-ac83-6dbae2815dd4",
+      "Flags": 0,
+      "Name": "GameConfig",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "GameConfig",
+          "__guid": "eaea8277-e13d-4dde-82d3-fdf20451c1b1",
+          "CenterSpawn": true,
+          "Layers": 4,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "PropDensity": 0.5,
+          "RemoveDeadEnds": true,
+          "RenderDistance": 6,
+          "RoomActionsPerFrame": 256,
+          "RoomChoice": 1,
+          "RoomsPerVertex": 5
+        }
+      ]
+    },
+    {
+      "__guid": "94551c87-caeb-40b0-8d1f-334e91ce5040",
+      "Flags": 0,
+      "Name": "UI",
+      "Enabled": true,
+      "Children": [
+        {
+          "__guid": "e039a0ce-f80b-4062-89fe-8d50d78dc224",
+          "Flags": 0,
+          "Name": "StartMenu",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ScreenPanel",
+              "__guid": "cc479554-ba6c-498c-b66a-7c20845f4fd9",
+              "AutoScreenScale": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Opacity": 1,
+              "Scale": 1,
+              "ScaleStrategy": "ConsistentHeight",
+              "ZIndex": 100
+            },
+            {
+              "__type": "Sandbox.StartMenu",
+              "__guid": "0d530582-0cd1-49f9-9cc7-828a3ad4d00e",
+              "InfoObject": {
+                "_type": "gameobject",
+                "go": "b0a3c239-3084-4f1c-a879-5de7511edd09"
+              },
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "SettingsObject": {
+                "_type": "gameobject",
+                "go": "f5ef75a2-04f7-4b69-bccc-c36755b129f1"
+              }
+            }
+          ]
+        },
+        {
+          "__guid": "f5ef75a2-04f7-4b69-bccc-c36755b129f1",
+          "Flags": 0,
+          "Name": "SettingsMenu",
+          "Components": [
+            {
+              "__type": "Sandbox.ScreenPanel",
+              "__guid": "a3a9ab45-6add-4938-826e-e0952a7f306b",
+              "AutoScreenScale": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Opacity": 1,
+              "Scale": 1,
+              "ScaleStrategy": "ConsistentHeight",
+              "ZIndex": 100
+            },
+            {
+              "__type": "Sandbox.SettingsMenu",
+              "__guid": "c58e2b93-3061-434a-9399-e469118b23c4",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "StartObject": {
+                "_type": "gameobject",
+                "go": "e039a0ce-f80b-4062-89fe-8d50d78dc224"
+              }
+            }
+          ]
+        },
+        {
+          "__guid": "b0a3c239-3084-4f1c-a879-5de7511edd09",
+          "Flags": 0,
+          "Name": "InfoMenu",
+          "Components": [
+            {
+              "__type": "Sandbox.ScreenPanel",
+              "__guid": "c4a8de9b-ffc6-40cd-8cd6-02220265c9b8",
+              "AutoScreenScale": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Opacity": 1,
+              "Scale": 1,
+              "ScaleStrategy": "ConsistentHeight",
+              "ZIndex": 100
+            },
+            {
+              "__type": "Sandbox.InfoMenu",
+              "__guid": "d985e3fb-0aec-4682-91cd-8841d0a1ed1c",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "StartObject": {
+                "_type": "gameobject",
+                "go": "e039a0ce-f80b-4062-89fe-8d50d78dc224"
+              }
+            }
+          ]
         }
       ]
     }

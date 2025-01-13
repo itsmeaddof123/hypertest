@@ -130,9 +130,9 @@ public sealed class GameManager : Component
 	protected override void OnUpdate()
 	{
 		// Check to switch scenes
-		if ( RoomsVisited.Count > 1 )
+		if ( RoomsVisited.Count > 3 )
 		{
-			Scene.LoadFromFile("scenes/main.scene");
+			Scene.LoadFromFile("scenes/setup.scene");
 			return;
 		}
 
@@ -413,7 +413,7 @@ public sealed class GameManager : Component
 		// Render distance
 		Fog.StartDistance = (GameConfig.RenderDistance - 1.0f) * 250;
 		Fog.EndDistance = (GameConfig.RenderDistance - 0.5f) * 250;
-		Camera.ZFar = (int)GameConfig.RenderDistance * 250;
+		Camera.ZFar = (int)(GameConfig.RenderDistance + 4) * 250;
 
 		EnterRoom(Origin);
 	}

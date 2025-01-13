@@ -3,20 +3,6 @@ using System;
 
 public sealed class GameConfig : Component
 {
-	// How many branch layers to generate
-	private int _layers;
-	[Property] public int Layers
-	{
-		get { return _layers; }
-		set
-		{
-			_layers = Math.Max(value, _rooms_per_vertex / 2);
-			if (Layers != _layers)
-			{
-				Layers = _layers;
-			}
-		}
-	}
 
 	// How many rooms should surround a single vertex
 	private int _rooms_per_vertex;
@@ -32,6 +18,21 @@ public sealed class GameConfig : Component
 			}
 
 			Layers = Math.Max(Layers, _rooms_per_vertex / 2);
+		}
+	}
+	
+	// How many branch layers to generate
+	private int _layers;
+	[Property] public int Layers
+	{
+		get { return _layers; }
+		set
+		{
+			_layers = Math.Max(value, _rooms_per_vertex / 2);
+			if (Layers != _layers)
+			{
+				Layers = _layers;
+			}
 		}
 	}
 
@@ -80,7 +81,20 @@ public sealed class GameConfig : Component
 		}
 	}
 
-	[Property] public int RoomActionsPerFrame { get; set; } // Room Loading Speed
+	// Room Loading Speed
+	private int _room_actions_per_frame;
+	[Property] public int RoomActionsPerFrame
+	{
+		get { return _room_actions_per_frame; }
+		set
+		{
+			_room_actions_per_frame = Math.Max(value, 32);
+			if (RoomActionsPerFrame != _room_actions_per_frame)
+			{
+				RoomActionsPerFrame = _room_actions_per_frame;
+			}
+		}
+	}
 	
 	[Property] public bool CenterSpawn { get; set; } // Center vs Random Spawn
 	[Property] public bool RemoveDeadEnds { get; set; } // Remove dead ends during node generation

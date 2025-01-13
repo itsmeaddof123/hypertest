@@ -1,0 +1,43 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+@namespace Sandbox
+
+<root>
+	<div class="header"><p>HyperTile</p></div>
+	<div class="subheader"><p>@SubHeader</p></div>
+	<div class="body"><p>@Body</p></div>
+	<div class="buttons">
+		<div class="button" onclick=@OnPlay><p>Play</p></div>
+		<div class="button" onclick=@OnSettings><p>Settings</p></div>
+		<div class="button" onclick=@OnInfo><p>More Info</p></div>
+	</div>
+</root>
+
+@code
+{
+	[Property] public GameObject SettingsObject { get; set; }
+	[Property] public GameObject InfoObject { get; set; }
+
+	private string SubHeader = "How many squares fit around one corner?";
+	private string Body = "Normally: Four.\nHere: As many as we want!\n\nThis is a simulation of a square tiling of a hyperbolic plane. If it is your first time, I encourage you to click Play and explore the world. You can press Escape to return here and adjust Settings: number of rooms per vertex, exploration mode, world size, and more. Read about the process in More Info.";
+
+	private void OnPlay()
+	{
+		Scene.LoadFromFile("scenes/main.scene");
+	}
+	
+	private void OnSettings()
+	{
+		SettingsObject.Enabled = true;
+		GameObject.Enabled = false;
+	}
+	
+	private void OnInfo()
+	{
+		InfoObject.Enabled = true;
+		GameObject.Enabled = false;
+	}
+
+	protected override int BuildHash() => System.HashCode.Combine( "" );
+}

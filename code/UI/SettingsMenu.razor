@@ -1,0 +1,218 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+@namespace Sandbox
+
+<root>
+	<div class="header"><p>Settings</p></div>
+	<div class="body"><p>@Body</p></div>
+	<div class="settings">
+		<div class="setting">
+			<div class="settingsblock">
+				<p>Rooms Per Corner:</p>
+				<div class="settingsbutton" onclick=@RoomsPerVertexDown><p>-</p></div>
+				<p> @GameConfig.RoomsPerVertex </p>
+				<div class="settingsbutton" onclick=@RoomsPerVertexUp><p>+</p></div>
+			</div>
+			<div class="description">
+				<p>@RoomsPerVertexDescription</p>
+			</div>
+		</div>
+		<div class="setting">
+			<div class="settingsblock">
+				<p>World Size:</p>
+				<div class="settingsbutton" onclick=@LayersDown><p>-</p></div>
+				<p>@GameConfig.Layers</p>
+				<div class="settingsbutton" onclick=@LayersUp><p>+</p></div>
+			</div>
+			<div class="description">
+				<p>@LayersDescription</p>
+			</div>
+		</div>
+		<div class="setting">
+			<div class="settingsblock">
+				<p>Walls:</p>
+				<div class="settingsbutton" onclick=@RoomChoiceDown><p>←</p></div>
+				<p>@RoomChoiceName</p>
+				<div class="settingsbutton" onclick=@RoomChoiceUp><p>→</p></div>
+			</div>
+			<div class="description">
+				<p>@RoomChoiceDescription</p>
+			</div>
+		</div>
+		<div class="setting">
+			<div class="settingsblock">
+				<p>Remove Dead Ends:</p>
+				<div class="settingsbutton" onclick=@RemoveDeadEndsToggle><p>Toggle</p></div>
+				<p>@RemoveDeadEndsStatus</p>
+			</div>
+			<div class="description">
+				<p>@RemoveDeadEndsDescription</p>
+			</div>
+		</div>
+		<div class="setting">
+			<div class="settingsblock">
+				<p>Spawn In Center:</p>
+				<div class="settingsbutton" onclick=@CenterSpawnToggle><p>Toggle</p></div>
+				<p>@CenterSpawnStatus</p>
+			</div>
+			<div class="description">
+				<p>@CenterSpawnDescription</p>
+			</div>
+		</div>
+		<div class="setting">
+			<div class="settingsblock">
+				<p>Prop Density:</p>
+				<div class="settingsbutton" onclick=@PropDensityDown><p>-</p></div>
+				<p>@GameConfig.PropDensity</p>
+				<div class="settingsbutton" onclick=@PropDensityUp><p>+</p></div>
+			</div>
+			<div class="description">
+				<p>@PropDensityDescription</p>
+			</div>
+		</div>
+		<div class="setting">
+			<div class="settingsblock">
+				<p>Render Distance:</p>
+				<div class="settingsbutton" onclick=@RenderDistanceDown><p>-</p></div>
+				<p> @GameConfig.RenderDistance </p>
+				<div class="settingsbutton" onclick=@RenderDistanceUp><p>+</p></div>
+			</div>
+			<div class="description">
+				<p>@RenderDistanceDescription</p>
+			</div>
+		</div>
+		<div class="setting">
+			<div class="settingsblock">
+				<p>Loading Speed:</p>
+				<div class="settingsbutton" onclick=@RoomActionsPerFrameDown><p>-</p></div>
+				<p> @GameConfig.RoomActionsPerFrame </p>
+				<div class="settingsbutton" onclick=@RoomActionsPerFrameUp><p>+</p></div>
+			</div>
+			<div class="description">
+				<p>@RoomActionsPerFrameDescription</p>
+			</div>
+		</div>
+	</div>
+	<div class="buttons">
+		<div class="button" onclick=@OnBack><p>Back</p></div>
+	</div>
+</root>
+
+@code
+{
+	[Property] public GameObject StartObject { get; set; }
+	private GameConfig GameConfig;
+
+	private string Body = "WARNING: I didn't put an upper limit on complexity-related settings. Increase complexity in small increments to avoid crashing your game.";
+
+	// Rooms Per Vertex
+	private string RoomsPerVertexDescription = "The number of square rooms that fit around one corner. Will impact performance more as you increase the rooms. Probably no reason to increase past 10. Minimum: 5";
+	private void RoomsPerVertexDown()
+	{
+		GameConfig.RoomsPerVertex--;
+	}
+	private void RoomsPerVertexUp()
+	{
+		GameConfig.RoomsPerVertex++;
+	}
+
+	// Layers
+	private string LayersDescription = "The number of layers to generate, branching out from the central room. Increases the total number of rooms exponentially, so be VERY conservative when increasing. Minimum: Rooms Per Corner / 2";
+	private void LayersDown()
+	{
+		GameConfig.Layers--;
+	}
+	private void LayersUp()
+	{
+		GameConfig.Layers++;
+	}
+
+	// Room Choice
+	private string RoomChoiceDescription = "The thickness of the walls in each room. Thick walls will improve performance. No walls will decrease performance and may result in unpredictable buggy behavior.";
+	private string RoomChoiceName = "Thin";
+	private List<string> RoomChoiceNames = new List<string> { "None", "Thin", "Thick" };
+	private void RoomChoiceDown()
+	{
+		GameConfig.RoomChoice = (GameConfig.RoomChoice + 2) % 3;
+		RoomChoiceName =RoomChoiceNames[GameConfig.RoomChoice];
+	}
+	private void RoomChoiceUp()
+	{
+		GameConfig.RoomChoice = (GameConfig.RoomChoice + 1) % 3;
+		RoomChoiceName =RoomChoiceNames[GameConfig.RoomChoice];
+	}
+
+	// Remove Dead Ends
+	private string RemoveDeadEndsDescription = "Whether or not to remove dead ends during room generation. Disabling this will decrease performance somewhat.";
+	private string RemoveDeadEndsStatus = "Enabled";
+	private void RemoveDeadEndsToggle()
+	{
+		GameConfig.RemoveDeadEnds = !GameConfig.RemoveDeadEnds;
+		RemoveDeadEndsStatus = GameConfig.RemoveDeadEnds ? "Enabled" : "Disabled";
+	}
+
+	// Center Spawn
+	private string CenterSpawnDescription = "Whether or not to spawn in the center room. No impact on performance.";
+	private string CenterSpawnStatus = "Enabled";
+	private void CenterSpawnToggle()
+	{
+		GameConfig.CenterSpawn = !GameConfig.CenterSpawn;
+		CenterSpawnStatus = GameConfig.CenterSpawn ? "Enabled" : "Disabled";
+	}
+
+	// Prop Density
+	private string PropDensityDescription = "What proportion of the rooms will have props in them. Low impact on performance.";
+	private void PropDensityDown()
+	{
+		GameConfig.PropDensity = (GameConfig.PropDensity * 10 - 1) / 10;
+	}
+	private void PropDensityUp()
+	{
+		GameConfig.PropDensity = (GameConfig.PropDensity * 10 + 1) / 10;
+	}
+
+	// Render Distance
+	private string RenderDistanceDescription = "How many rooms away to load. As this determines the number of rooms that are loaded at once, this will have a VERY HIGH impact on performance, especially when world size is large. Minimum: 2";
+	private void RenderDistanceDown()
+	{
+		GameConfig.RenderDistance--;
+	}
+	private void RenderDistanceUp()
+	{
+		GameConfig.RenderDistance++;
+	}
+
+	// Room Actions Per Frame
+	private string RoomActionsPerFrameDescription = "How many rooms to load/unload per frame. If there are fewer rooms to load than this, then the illusion will be seamless as you move around. If there are more, you may notice rooms blipping in and out as you walk around. Decrease if you want to increase the complexity without crashing your game. Minimum: 32";
+	private void RoomActionsPerFrameDown()
+	{
+		GameConfig.RoomActionsPerFrame -= 32;
+	}
+	private void RoomActionsPerFrameUp()
+	{
+		GameConfig.RoomActionsPerFrame += 32;
+	}
+
+	private void OnBack()
+	{
+		StartObject.Enabled = true;
+		GameObject.Enabled = false;
+	}
+
+	protected override void OnStart()
+	{
+		List<GameConfig> game_config_list = Scene.GetAllComponents<GameConfig>().ToList();
+		if (game_config_list.Count == 0)
+		{
+			Log.Error("No GameConfig found!");
+			return;
+		}
+		GameConfig = game_config_list[0];
+	}
+
+	protected override int BuildHash()
+	{
+		return System.HashCode.Combine( GameConfig.RoomsPerVertex, GameConfig.Layers, GameConfig.RoomChoice );
+	}
+}

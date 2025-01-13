@@ -629,32 +629,6 @@
           ]
         }
       ]
-    },
-    {
-      "__guid": "25539270-0832-4e1a-8e72-8835b299718a",
-      "Flags": 0,
-      "Name": "GameConfig",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "GameConfig",
-          "__guid": "b128d8c7-3690-4a32-8de9-064867ade50c",
-          "CenterSpawn": true,
-          "Layers": 4,
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "PropDensity": 0.5,
-          "RemoveDeadEnds": true,
-          "RenderDistance": 6,
-          "RoomActionsPerFrame": 256,
-          "RoomChoice": 1,
-          "RoomsPerVertex": 5
-        }
-      ]
     }
   ],
   "SceneProperties": {

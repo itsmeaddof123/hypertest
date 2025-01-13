@@ -1,0 +1,29 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+@namespace Sandbox
+
+<root>
+	<div class="header"><p>More Info</p></div>
+	<div class="container">
+		<div class="body"><p>@Body</p></div>
+	</div>
+	<div class="buttons">
+		<div class="button" onclick=@OnBack><p>Back</p></div>
+	</div>
+</root>
+
+@code
+{
+	[Property] public GameObject StartObject { get; set; }
+
+	private string Body = "Normally, the answer is 4. Here, we can have as many as we want.\nThis is a simulation of a square tiling of a hyperbolic plane. If it is your first time, I encourage you to click Play and explore the world. You can press Escape to return here and adjust Settings: number of rooms per vertex, exploration mode, world size, and more. Read about the process in More Info.";
+
+	private void OnBack()
+	{
+		StartObject.Enabled = true;
+		GameObject.Enabled = false;
+	}
+
+	protected override int BuildHash() => System.HashCode.Combine( "" );
+}

@@ -1,0 +1,55 @@
+StartMenu
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgb(23, 29, 44);
+	color: rgb(201, 194, 216);
+	pointer-events: all;
+	font-family: Poppins;
+	align-items: center;
+	flex-direction: column;
+
+	.header
+	{
+		font-weight: bold;
+		font-size: 12vh;
+		margin-bottom: 2vh;
+	}
+
+	.subheader
+	{
+		font-style: italic;
+		font-size: 6vh;
+		padding-left: 8vw;
+		padding-right: 8vw;
+		margin-bottom: 2vh;
+	}
+
+	.body
+	{
+		padding-left: 8vw;
+		padding-right: 8vw;
+		margin-bottom: 2vh;
+		font-size: 3vh;
+		white-space: pre-line;
+	}
+
+	.button
+	{
+		color: rgb(201, 194, 216);
+		text-shadow: 1px 1px 0 rgb(53, 47, 65),
+					-1px -1px 0 rgb(53, 47, 65),
+					1px -1px 0 rgb(53, 47, 65),
+					-1px 1px 0 rgb(53, 47, 65);
+		padding-left: 1vw;
+		padding-right: 1vw;
+		margin-left: 1vw;
+		margin-right: 1vw;
+		margin-bottom: 2vh;
+		font-size: 6vh;
+		border: 2px solid rgb(201, 194, 216);
+	}
+}
