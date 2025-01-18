@@ -12,7 +12,8 @@
           "__guid": "3b7a6771-daf1-4a71-850f-216a44aa423c",
           "GameConfigObject": {
             "_type": "gameobject",
-            "go": "a3e04356-751f-40c2-ac83-6dbae2815dd4"
+            "go": "a3e04356-751f-40c2-ac83-6dbae2815dd4",
+            "prefab": null
           },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -33,6 +34,7 @@
           "__type": "GameConfig",
           "__guid": "eaea8277-e13d-4dde-82d3-fdf20451c1b1",
           "CenterSpawn": true,
+          "GameMode": 0,
           "Layers": 4,
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -79,9 +81,16 @@
             {
               "__type": "Sandbox.StartMenu",
               "__guid": "0d530582-0cd1-49f9-9cc7-828a3ad4d00e",
+              "GameConfig": {
+                "_type": "component",
+                "component_id": "eaea8277-e13d-4dde-82d3-fdf20451c1b1",
+                "go": "a3e04356-751f-40c2-ac83-6dbae2815dd4",
+                "component_type": "GameConfig"
+              },
               "InfoObject": {
                 "_type": "gameobject",
-                "go": "b0a3c239-3084-4f1c-a879-5de7511edd09"
+                "go": "b0a3c239-3084-4f1c-a879-5de7511edd09",
+                "prefab": null
               },
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
@@ -91,7 +100,8 @@
               "OnComponentUpdate": null,
               "SettingsObject": {
                 "_type": "gameobject",
-                "go": "f5ef75a2-04f7-4b69-bccc-c36755b129f1"
+                "go": "f5ef75a2-04f7-4b69-bccc-c36755b129f1",
+                "prefab": null
               }
             }
           ]
@@ -127,7 +137,8 @@
               "OnComponentUpdate": null,
               "StartObject": {
                 "_type": "gameobject",
-                "go": "e039a0ce-f80b-4062-89fe-8d50d78dc224"
+                "go": "e039a0ce-f80b-4062-89fe-8d50d78dc224",
+                "prefab": null
               }
             }
           ]
@@ -163,7 +174,8 @@
               "OnComponentUpdate": null,
               "StartObject": {
                 "_type": "gameobject",
-                "go": "e039a0ce-f80b-4062-89fe-8d50d78dc224"
+                "go": "e039a0ce-f80b-4062-89fe-8d50d78dc224",
+                "prefab": null
               }
             }
           ]

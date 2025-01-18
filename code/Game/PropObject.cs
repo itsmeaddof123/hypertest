@@ -9,7 +9,7 @@ public sealed class PropObject : Component
 	public Vector3 DesiredPosition = Vector3.Zero;
 	public Angles DesiredRotation = Angles.Zero;
 
-	public void SetInfo(GameManager.PropInfo prop_info)
+	public void SetInfo(GameConfig GameConfig, GameConfig.PropInfo prop_info)
 	{
 		Random random = new Random();
 		
@@ -51,7 +51,7 @@ public sealed class PropObject : Component
 			DesiredPosition = new Vector3((float)(radius * Math.Cos(theta)), (float)(radius * Math.Sin(theta)), height);
 		}
 
-		PropRenderer.Model = prop_info.Model;
-		PropCollider.Model = prop_info.Model;
+		PropRenderer.Model = prop_info.PropModel;
+		PropCollider.Model = prop_info.PropModel;
 	}
 }

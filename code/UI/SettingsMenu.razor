@@ -20,6 +20,17 @@
 		</div>
 		<div class="setting">
 			<div class="settingsblock">
+				<p>Game Mode:</p>
+				<div class="settingsbutton" onclick=@GameModeDown><p>←</p></div>
+				<p>@GameModeStatus</p>
+				<div class="settingsbutton" onclick=@GameModeUp><p>→</p></div>
+			</div>
+			<div class="description">
+				<p>@GameModeDescription</p>
+			</div>
+		</div>
+		<div class="setting">
+			<div class="settingsblock">
 				<p>World Size:</p>
 				<div class="settingsbutton" onclick=@LayersDown><p>-</p></div>
 				<p>@GameConfig.Layers</p>
@@ -117,6 +128,21 @@
 		GameConfig.RoomsPerVertex++;
 	}
 
+	// Game Mode
+	private string GameModeDescription = "Explore will generate the world with all rooms connected and doors opened. Paint will challenge you to visit every unique room, which grows in difficulty as you increase Rooms Per Corner and World Size. Mazelike puts extra walls up for added confusion.";
+	private string GameModeStatus;
+	private List<string> GameModes = new List<string> {"Explore", "Paint", "Mazelike", "Paint The Maze"};
+	private void GameModeDown()
+	{
+		GameConfig.GameMode = (GameConfig.GameMode + 3) % 4;
+		GameModeStatus = GameModes[GameConfig.GameMode];
+	}
+	private void GameModeUp()
+	{
+		GameConfig.GameMode = (GameConfig.GameMode + 1) % 4;
+		GameModeStatus = GameModes[GameConfig.GameMode];
+	}
+
 	// Layers
 	private string LayersDescription = "The number of layers to generate, branching out from the central room. Increases the total number of rooms exponentially, so be VERY conservative when increasing. Minimum: Rooms Per Corner / 2";
 	private void LayersDown()
@@ -210,6 +236,7 @@
 		}
 		GameConfig = game_config_list[0];
 
+		GameModeStatus = GameModes[GameConfig.GameMode];
 		RoomChoiceName = RoomChoiceNames[GameConfig.RoomChoice];
 		RemoveDeadEndsStatus = GameConfig.RemoveDeadEnds ? "Enabled" : "Disabled";
 		CenterSpawnStatus = GameConfig.CenterSpawn ? "Enabled" : "Disabled";

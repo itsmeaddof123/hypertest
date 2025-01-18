@@ -29,11 +29,12 @@
           "CameraOffset": "256,0,12",
           "ColliderObject": {
             "_type": "gameobject",
-            "go": "5375c080-9e56-4f24-b093-e1107cd143cf"
+            "go": "5375c080-9e56-4f24-b093-e1107cd143cf",
+            "prefab": null
           },
           "DeaccelerationTime": 0,
           "DuckedHeight": 36,
-          "DuckedSpeed": 70,
+          "DuckedSpeed": 100,
           "EnableFootstepSounds": true,
           "EnablePressing": true,
           "EyeDistanceFromTop": 8,
@@ -61,7 +62,7 @@
           "RotationAngleLimit": 45,
           "RotationSpeed": 1,
           "RunByDefault": false,
-          "RunSpeed": 250,
+          "RunSpeed": 400,
           "ShowColliderComponents": false,
           "ShowRigidbodyComponent": false,
           "ThirdPerson": false,
@@ -71,7 +72,7 @@
           "UseCameraControls": true,
           "UseFovFromPreferences": true,
           "UseInputControls": true,
-          "WalkSpeed": 150
+          "WalkSpeed": 250
         },
         {
           "__type": "Sandbox.Rigidbody",
@@ -303,7 +304,8 @@
               },
               "CeilingObject": {
                 "_type": "gameobject",
-                "go": "e34e9128-fd73-4941-9c93-9a8c7b28534b"
+                "go": "e34e9128-fd73-4941-9c93-9a8c7b28534b",
+                "prefab": null
               },
               "Fog": {
                 "_type": "component",
@@ -323,6 +325,12 @@
               "OnComponentFixedUpdate": null,
               "OnComponentStart": null,
               "OnComponentUpdate": null,
+              "PaintHUD": {
+                "_type": "component",
+                "component_id": "e7398f79-a995-4b76-9141-ba8cda116a89",
+                "go": "28702f87-3b20-4522-b94f-4066955e4fbb",
+                "component_type": "PaintHUD"
+              },
               "Player": {
                 "_type": "component",
                 "component_id": "0b9d0eae-0657-4194-8f5b-b48b2932b904",
@@ -331,19 +339,23 @@
               },
               "PropPrefab": {
                 "_type": "gameobject",
+                "go": "00000000-0000-0000-0000-000000000000",
                 "prefab": "prefabs/prop.prefab"
               },
               "RoomPrefabs": [
                 {
                   "_type": "gameobject",
+                  "go": "00000000-0000-0000-0000-000000000000",
                   "prefab": "prefabs/squareroomnone.prefab"
                 },
                 {
                   "_type": "gameobject",
+                  "go": "00000000-0000-0000-0000-000000000000",
                   "prefab": "prefabs/squareroomthin.prefab"
                 },
                 {
                   "_type": "gameobject",
+                  "go": "00000000-0000-0000-0000-000000000000",
                   "prefab": "prefabs/squareroomthick.prefab"
                 }
               ]
@@ -409,7 +421,14 @@
           "__guid": "677f2a21-cdd3-4a25-b3d8-9dff713b7d07",
           "Light": {
             "_type": "gameobject",
-            "go": "e2351d40-91d5-4d38-bf14-724f875269ce"
+            "go": "e2351d40-91d5-4d38-bf14-724f875269ce",
+            "prefab": null
+          },
+          "ModelRenderer": {
+            "_type": "component",
+            "component_id": "a50bfa31-0499-4bba-b9fa-b421a0122321",
+            "go": "e34e9128-fd73-4941-9c93-9a8c7b28534b",
+            "component_type": "ModelRenderer"
           },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -419,7 +438,8 @@
           "OnComponentUpdate": null,
           "Player": {
             "_type": "gameobject",
-            "go": "fb9baf90-d520-4ec1-a2d9-555ba5c6ad5d"
+            "go": "fb9baf90-d520-4ec1-a2d9-555ba5c6ad5d",
+            "prefab": null
           },
           "Radius": 5
         },
@@ -625,6 +645,53 @@
               },
               "RenderType": "Off",
               "Tint": "1,1,1,1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__guid": "239108d7-217b-4841-abcb-d67503678ab2",
+      "Flags": 0,
+      "Name": "UI",
+      "Enabled": true,
+      "Children": [
+        {
+          "__guid": "28702f87-3b20-4522-b94f-4066955e4fbb",
+          "Flags": 0,
+          "Name": "PaintHUD",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ScreenPanel",
+              "__guid": "876f0f2b-5682-4422-9a87-21dfc5856e78",
+              "AutoScreenScale": true,
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Opacity": 0,
+              "Scale": 1,
+              "ScaleStrategy": "ConsistentHeight",
+              "ZIndex": 100
+            },
+            {
+              "__type": "Sandbox.PaintHUD",
+              "__guid": "e7398f79-a995-4b76-9141-ba8cda116a89",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "ScreenPanel": {
+                "_type": "component",
+                "component_id": "876f0f2b-5682-4422-9a87-21dfc5856e78",
+                "go": "28702f87-3b20-4522-b94f-4066955e4fbb",
+                "component_type": "ScreenPanel"
+              }
             }
           ]
         }

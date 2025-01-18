@@ -4,6 +4,7 @@ public sealed class Ceiling : Component
 {
 	[Property] public GameObject Light { get; set; }
 	[Property] public GameObject Player { get; set; }
+	[Property] public ModelRenderer ModelRenderer { get; set; }
 	[Property] public int Radius { get; set; }
 
 	private Vector3 x = new Vector3(250, 0, 0);
@@ -18,5 +19,11 @@ public sealed class Ceiling : Component
 			light.Parent = GameObject;
 			light.WorldPosition = Light.WorldPosition + location.x * x + location.y * y;
 		}
+	}
+
+	// Set the color of the ceiling
+	public void SetColor(Color color)
+	{
+		ModelRenderer.Tint = color;
 	}
 }

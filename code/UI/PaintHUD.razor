@@ -1,0 +1,47 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+@namespace Sandbox
+
+<root>
+	<div class="hud">
+		<p>Rooms Painted: @Found</p>
+	</div>
+	<div class="hud">
+		<p>Remaining: @Remaining</p>
+	</div>
+	<div class="hud">
+		<p>Time Elapsed: @TimeElapsed</p>
+	</div>
+</root>
+
+@code
+{
+	[Property] public ScreenPanel ScreenPanel { get; set; }
+
+	public int Found = 0;
+	public int Remaining = 0;
+	public float TotalTime = 0;
+	public int TimeElapsed = 0;
+
+	protected override void OnUpdate()
+	{
+		if (Remaining == 0) return;
+		TotalTime += (float)Time.Delta;
+		TimeElapsed = (int)TotalTime;
+	}
+
+	public void Enable(int count)
+	{
+		Remaining = count;
+		ScreenPanel.Opacity = 1;
+	}
+
+	public void RoomFound()
+	{
+		Remaining--;
+		Found++;
+	}
+
+	protected override int BuildHash() => System.HashCode.Combine( Remaining, Found, TimeElapsed );
+}

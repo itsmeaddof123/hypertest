@@ -25,6 +25,7 @@ public sealed class RoomObject : Component
 	private int ColorDivisorMin = 2;
 	private int ColorDivisorMax = 4;
 	private Random Random = new Random();
+	private Color GreySkip = new Color (0.5f, 0.5f, 0.5f); // Screw this color
 
 	private List<Vector3> PositionOffsets = new List<Vector3>
 	{
@@ -188,7 +189,23 @@ public sealed class RoomObject : Component
 		Room.Enabled = false;
 	}
 
-	public void FinishSetup(PropObject prop)
+	public Color RandomColor(bool skip_black = false)
+	{
+		int div = Random.Next(ColorDivisorMin, ColorDivisorMax);
+		Color color = new Color(RGB(div), RGB(div), RGB(div));
+		while ( color == GreySkip || skip_black && color == Color.Black )
+		{
+			color = new Color(RGB(div), RGB(div), RGB(div));
+		}
+		return color;
+	}
+
+	public Color InvertColor(Color color)
+	{
+		return new Color(1f - color.r, 1f - color.g, 1f - color.b);
+	}
+
+	public void FinishSetup(PropObject prop, Color color)
 	{
 		// Delete doors 
 		for (int i = 0; i < 4; i++)
@@ -199,15 +216,7 @@ public sealed class RoomObject : Component
 				Doors[i].Destroy();
 			}
 		}
-
-		// Select a random color
-		int div = Random.Next(ColorDivisorMin, ColorDivisorMax);
-		Color color = new Color(RGB(div), RGB(div), RGB(div));
-		while ( color == Color.Black )
-		{
-			color = new Color(RGB(div), RGB(div), RGB(div));
-		}
-
+		
 		// Grab all necessary render models
 		ObjectRenderers = RenderList.Components.GetAll<ModelRenderer>(FindMode.InDescendants).ToList();
 		foreach (ModelRenderer object_renderer in ObjectRenderers)
@@ -230,8 +239,7 @@ public sealed class RoomObject : Component
 				ModelRenderer prop_renderer = prop.PropRenderer;
 				prop_renderer.RenderOptions.Game = false;
 				prop_renderer.RenderType = ModelRenderer.ShadowRenderType.Off;
-				//prop_renderer.Tint = new Color(RGB(div), RGB(div), RGB(div));
-				prop_renderer.Tint = new Color(1f - color.r, 1f - color.g, 1f - color.b);
+				prop_renderer.Tint = InvertColor(color);
 				ObjectRenderers.Add(prop_renderer);
 
 				PropCollider = prop.PropCollider;

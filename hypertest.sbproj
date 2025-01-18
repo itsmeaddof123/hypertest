@@ -1,8 +1,8 @@
 {
-  "Title": "HyperTest",
+  "Title": "HyperTile",
   "Type": "game",
-  "Org": "local",
-  "Ident": "hypertest",
+  "Org": "addiboi",
+  "Ident": "hypertile",
   "Schema": 1,
   "IncludeSourceFiles": false,
   "Resources": null,

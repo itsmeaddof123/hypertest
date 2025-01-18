@@ -52,4 +52,34 @@ StartMenu
 		font-size: 6vh;
 		border: 2px solid rgb(201, 194, 216);
 	}
+
+	.setting
+	{
+		align-items: center;
+		flex-direction: column;
+		margin-bottom: 1vh;
+		flex-shrink: 0;
+	}
+
+	.settingsblock
+	{
+		align-items: center;
+		flex-direction: row;
+		font-size: 4vh;
+	}
+
+	.settingsbutton
+	{
+		color: rgb(201, 194, 216);
+		text-shadow: 1px 1px 0 rgb(53, 47, 65),
+					-1px -1px 0 rgb(53, 47, 65),
+					1px -1px 0 rgb(53, 47, 65),
+					-1px 1px 0 rgb(53, 47, 65);
+		padding-left: 1vw;
+		padding-right: 1vw;
+		margin-left: 1vw;
+		margin-right: 1vw;
+		font-size: 4vh;
+		border: 1px solid rgb(201, 194, 216);
+	}
 }

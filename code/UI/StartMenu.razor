@@ -9,18 +9,68 @@
 	<div class="body"><p>@Body</p></div>
 	<div class="buttons">
 		<div class="button" onclick=@OnPlay><p>Play</p></div>
-		<div class="button" onclick=@OnSettings><p>Settings</p></div>
+		<div class="button" onclick=@OnSettings><p>More Settings</p></div>
 		<div class="button" onclick=@OnInfo><p>More Info</p></div>
+	</div>
+	<div class="setting">
+		<div class="settingsblock">
+			<p>Rooms Per Corner:</p>
+			<div class="settingsbutton" onclick=@RoomsPerVertexDown><p>-</p></div>
+			<p> @GameConfig.RoomsPerVertex </p>
+			<div class="settingsbutton" onclick=@RoomsPerVertexUp><p>+</p></div>
+		</div>
+	</div>
+	<div class="setting">
+		<div class="settingsblock">
+			<p>Game Mode:</p>
+			<div class="settingsbutton" onclick=@GameModeDown><p>←</p></div>
+			<p> @GameModeStatus </p>
+			<div class="settingsbutton" onclick=@GameModeUp><p>→</p></div>
+		</div>
 	</div>
 </root>
 
 @code
 {
+	[Property] public GameConfig GameConfig { get; set; }
 	[Property] public GameObject SettingsObject { get; set; }
 	[Property] public GameObject InfoObject { get; set; }
 
 	private string SubHeader = "How many squares fit around one corner?";
-	private string Body = "Normally: Four.\nHere: As many as we want!\n\nThis is a simulation of a square tiling of a hyperbolic plane. If it is your first time, I encourage you to click Play and explore the world. You can press Escape to return here and adjust Settings: number of rooms per vertex, exploration mode, world size, and more. Read about the process in More Info.";
+	private string Body =
+		"Normally, four. In this simulated square tiling of a hyperbolic plane? As many as you want!\n\n" + 
+		"For your first time, I recommend pressing Play (once loaded) and exploring. After that, try out " +
+		"these settings: 6 Rooms Per Corner, Paint The Maze Game Mode, No Walls. Play around with other " +
+		"settings if you like, and read about the process in More Info.";
+
+	// Rooms Per Vertex 
+	private void RoomsPerVertexDown()
+	{
+		GameConfig.RoomsPerVertex--;
+	}
+	private void RoomsPerVertexUp()
+	{
+		GameConfig.RoomsPerVertex++;
+	}
+
+	// Game Mode
+	private string GameModeStatus;
+	private List<string> GameModes = new List<string> {"Explore", "Paint", "Mazelike", "Paint The Maze"};
+	private void GameModeDown()
+	{
+		GameConfig.GameMode = (GameConfig.GameMode + 3) % 4;
+		GameModeStatus = GameModes[GameConfig.GameMode];
+	}
+	private void GameModeUp()
+	{
+		GameConfig.GameMode = (GameConfig.GameMode + 1) % 4;
+		GameModeStatus = GameModes[GameConfig.GameMode];
+	}
+
+	protected override void OnStart()
+	{
+		GameModeStatus = GameModes[GameConfig.GameMode];
+	}
 
 	private void OnPlay()
 	{
@@ -39,5 +89,5 @@
 		GameObject.Enabled = false;
 	}
 
-	protected override int BuildHash() => System.HashCode.Combine( "" );
+	protected override int BuildHash() => System.HashCode.Combine( GameConfig.RoomsPerVertex, GameModeStatus );
 }

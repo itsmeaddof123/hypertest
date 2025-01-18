@@ -6,6 +6,7 @@ public sealed class NodeGraph : Component
 {
 	// Number of rays to cast from 0 to pi/2
 	private int Rays = 45;
+	private Random Random = new Random();
 
 	private Dictionary<string, List<float>> ViewPoints = new Dictionary<string, List<float>>
 	{
@@ -120,6 +121,19 @@ public sealed class NodeGraph : Component
 			return new_nodes;
 		}
 
+		public void CullAt(int index)
+		{
+			RoomNode neighbor = Neighbors[index];
+			if (neighbor == null) return;
+			int edge = Array.IndexOf(neighbor.Neighbors, this);
+			if ( edge != -1 )
+			{
+				neighbor.Neighbors[edge] = null; // Remove neighbor connection to this
+			}
+
+			Neighbors[index] = null; // Remove this connection to neighbor
+		}				
+
 		public bool CullCheck()
 		{
 			RoomNode node = null;
@@ -144,14 +158,7 @@ public sealed class NodeGraph : Component
 			// Only one neighbor was found
 			if ( node != null )
 			{
-				RoomNode neighbor = Neighbors[index];
-				int edge = Array.IndexOf(neighbor.Neighbors, this);
-				if ( edge != -1 )
-				{
-					neighbor.Neighbors[edge] = null;
-				}
-
-				Neighbors[index] = null;
+				CullAt(index);
 				return true;
 			}
 
@@ -181,7 +188,7 @@ public sealed class NodeGraph : Component
 	}
 
 	// Generates a new nodegraph based on the given layer count and rooms per corner
-	public List<RoomNode> GenerateNodeGraph(int layers, int rooms_per_vertex, bool remove_dead_ends)
+	public List<RoomNode> GenerateNodeGraph(int layers, int rooms_per_vertex, bool remove_dead_ends, bool mazelike)
 	{
 		RoomNode center = new RoomNode("0A"); // Center node to begin the branching
 		List<RoomNode> nodes = new List<RoomNode>{center}; // All nodes in the graph	
@@ -209,7 +216,7 @@ public sealed class NodeGraph : Component
 		}
 
 		// Cull nodes with only one neighbor
-		if (remove_dead_ends)
+		if (remove_dead_ends && !mazelike)
 		{
 			bool culled;
 			do
@@ -226,6 +233,86 @@ public sealed class NodeGraph : Component
 					}
 				}
 			} while ( culled );
+		}
+
+		// Make the nodegraph more mazelike
+		if (mazelike)
+		{
+			List<RoomNode> unconnected = nodes.ToList();
+			List<RoomNode> connected = new List<RoomNode>();
+			RoomNode starter_node = unconnected[0]; // Start at the origin to best branch out
+			unconnected.Remove(starter_node);
+			connected.Add(starter_node);
+			List<RoomNode> old_nodes = new List<RoomNode> { starter_node };
+			Dictionary<RoomNode, List<int>> connections_to_cull = new Dictionary<RoomNode, List<int>>();
+
+			// Grab new nodes from any nodes that have just been found
+			do
+			{
+				List<RoomNode> new_nodes = new List<RoomNode>();
+
+				foreach (RoomNode node in old_nodes)
+				{
+					//Log.Info("Connecting from: " + node.Name);
+					int nodes_to_find = Random.Next(rooms_per_vertex - 2) + 1;
+					int end_key = Random.Next(4); // End here
+					List<int> keys_to_cull = new List<int> {0, 1, 2, 3};
+					for (int i = (end_key + 1) % 4; i != end_key; i = (i + 1) % 4) // Rotate around the room
+					{
+						//Log.Info("Looking at neighbor " + end_key.ToString());
+						// Preserve connection
+						RoomNode neighbor = node.Neighbors[i];
+						if (neighbor != null)
+						{
+							// New neighbor connection
+							if (unconnected.Contains(neighbor))
+							{
+								//Log.Info("Adding neighbor " + neighbor.Name);
+								unconnected.Remove(neighbor); // Remove neighbor from unconnected
+								connected.Add(neighbor);
+								keys_to_cull.Remove(i); // Prevent culling connection
+								new_nodes.Add(neighbor); // Track connection
+								nodes_to_find--;
+							}
+						}
+					
+						// Finish searching once enough have been found
+						if (nodes_to_find == 0)
+						{
+							break;
+						}
+					}
+
+					connections_to_cull[node] = keys_to_cull;
+				}
+
+				old_nodes = new_nodes.ToList();
+			} while (old_nodes.Count > 0);
+
+			// Break connections		
+			foreach (var kvp in connections_to_cull)
+			{
+				RoomNode node = kvp.Key;
+				foreach (int i in kvp.Value)
+				{
+					RoomNode neighbor = node.Neighbors[i];
+					if (neighbor != null && unconnected.Contains(neighbor) && Random.NextDouble() < 0.75)
+					{
+						//Log.Info("Culling " + i.ToString());
+						node.CullAt(i);
+					}
+				}
+			}
+
+			// Remove nodes that remained unconnected
+			for (int i = nodes.Count - 1; i >= 0; i--)
+			{
+				RoomNode node = nodes[i];
+				if (!unconnected.Contains(node)) continue;
+
+				nodes.RemoveAt(i);
+				node = null;
+			}
 		}
 
 		return nodes;
