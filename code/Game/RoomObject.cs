@@ -230,7 +230,7 @@ public sealed class RoomObject : Component
 		if ( prop != null )
 		{
 			GameObject prop_object = prop.GameObject;
-			if ( !IsOrigin)
+			if (!IsOrigin)
 			{
 				prop_object.Parent = RenderList;
 				prop_object.WorldPosition = GameObject.WorldPosition + prop.DesiredPosition;
@@ -242,8 +242,11 @@ public sealed class RoomObject : Component
 				prop_renderer.Tint = InvertColor(color);
 				ObjectRenderers.Add(prop_renderer);
 
-				PropCollider = prop.PropCollider;
-				PropCollider.Enabled = false;
+				if (prop.PropCollider != null)
+				{
+					PropCollider = prop.PropCollider;
+					PropCollider.Enabled = false;
+				}
 			}
 			else
 			{

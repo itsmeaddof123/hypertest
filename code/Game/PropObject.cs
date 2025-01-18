@@ -52,6 +52,15 @@ public sealed class PropObject : Component
 		}
 
 		PropRenderer.Model = prop_info.PropModel;
-		PropCollider.Model = prop_info.PropModel;
+
+		if (GameConfig.PropCollisions)
+		{
+			PropCollider.Model = prop_info.PropModel;
+		}
+		else
+		{
+			PropCollider.Destroy();
+			PropCollider = null;
+		}
 	}
 }

@@ -116,6 +116,7 @@ public sealed class GameConfig : Component
 	
 	[Property] public bool CenterSpawn { get; set; } // Center vs Random Spawn
 	[Property] public bool RemoveDeadEnds { get; set; } // Remove dead ends during node generation
+	[Property] public bool PropCollisions { get; set; } // Prop Collisions
 
 	public bool Ready = false;
 

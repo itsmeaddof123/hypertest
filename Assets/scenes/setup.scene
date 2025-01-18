@@ -41,6 +41,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
+          "PropCollisions": true,
           "PropDensity": 0.5,
           "RemoveDeadEnds": true,
           "RenderDistance": 7,

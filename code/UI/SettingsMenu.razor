@@ -73,6 +73,17 @@
 		</div>
 		<div class="setting">
 			<div class="settingsblock">
+				<p>Render Distance:</p>
+				<div class="settingsbutton" onclick=@RenderDistanceDown><p>-</p></div>
+				<p> @GameConfig.RenderDistance </p>
+				<div class="settingsbutton" onclick=@RenderDistanceUp><p>+</p></div>
+			</div>
+			<div class="description">
+				<p>@RenderDistanceDescription</p>
+			</div>
+		</div>
+		<div class="setting">
+			<div class="settingsblock">
 				<p>Prop Density:</p>
 				<div class="settingsbutton" onclick=@PropDensityDown><p>-</p></div>
 				<p>@GameConfig.PropDensity</p>
@@ -84,13 +95,12 @@
 		</div>
 		<div class="setting">
 			<div class="settingsblock">
-				<p>Render Distance:</p>
-				<div class="settingsbutton" onclick=@RenderDistanceDown><p>-</p></div>
-				<p> @GameConfig.RenderDistance </p>
-				<div class="settingsbutton" onclick=@RenderDistanceUp><p>+</p></div>
+				<p>Props Solid:</p>
+				<div class="settingsbutton" onclick=@PropCollisionsToggle><p>Toggle</p></div>
+				<p>@PropCollisionsStatus</p>
 			</div>
 			<div class="description">
-				<p>@RenderDistanceDescription</p>
+				<p>@PropCollisionsDescription</p>
 			</div>
 		</div>
 		<div class="setting">
@@ -187,6 +197,17 @@
 		CenterSpawnStatus = GameConfig.CenterSpawn ? "Enabled" : "Disabled";
 	}
 
+	// Render Distance
+	private string RenderDistanceDescription = "How many rooms away to load. As this determines the number of rooms that are loaded at once, this will have a VERY HIGH impact on performance, especially when world size is large. Minimum: 2";
+	private void RenderDistanceDown()
+	{
+		GameConfig.RenderDistance--;
+	}
+	private void RenderDistanceUp()
+	{
+		GameConfig.RenderDistance++;
+	}
+
 	// Prop Density
 	private string PropDensityDescription = "What proportion of the rooms will have props in them. Low impact on performance.";
 	private void PropDensityDown()
@@ -198,15 +219,13 @@
 		GameConfig.PropDensity = (GameConfig.PropDensity * 10 + 1) / 10;
 	}
 
-	// Render Distance
-	private string RenderDistanceDescription = "How many rooms away to load. As this determines the number of rooms that are loaded at once, this will have a VERY HIGH impact on performance, especially when world size is large. Minimum: 2";
-	private void RenderDistanceDown()
+	// Prop Collisions
+	private string PropCollisionsDescription = "Whether or not props should have collisions. Very low impact on performance.";
+	private string PropCollisionsStatus;
+	private void PropCollisionsToggle()
 	{
-		GameConfig.RenderDistance--;
-	}
-	private void RenderDistanceUp()
-	{
-		GameConfig.RenderDistance++;
+		GameConfig.PropCollisions = !GameConfig.PropCollisions;
+		PropCollisionsStatus = GameConfig.PropCollisions ? "Enabled" : "Disabled";
 	}
 
 	// Room Actions Per Frame
@@ -240,6 +259,7 @@
 		RoomChoiceName = RoomChoiceNames[GameConfig.RoomChoice];
 		RemoveDeadEndsStatus = GameConfig.RemoveDeadEnds ? "Enabled" : "Disabled";
 		CenterSpawnStatus = GameConfig.CenterSpawn ? "Enabled" : "Disabled";
+		PropCollisionsStatus = GameConfig.PropCollisions ? "Enabled" : "Disabled";
 	}
 
 	protected override int BuildHash()

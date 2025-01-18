@@ -309,9 +309,8 @@ public sealed class NodeGraph : Component
 			}
 
 			// Conservatively add new rooms for a while
-			int attempts_left = 100;
-			int connection_threshold = nodes.Count * 3 / 4;
-			while (connected.Count < connection_threshold && attempts_left > 0)
+			int attempts_left = 25;
+			while (attempts_left > 0)
 			{
 				attempts_left--;
 				
@@ -377,8 +376,8 @@ public sealed class NodeGraph : Component
 				edges_being_removed += kvp.Value.Count;
 			}
 
-			// Preserve 10% of the remaning edges to remove
-			int connected_edges_to_preserve = edges_being_removed / 10;
+			// Preserve some of the remaning edges to remove
+			int connected_edges_to_preserve = edges_being_removed * 25 / 100;
 			while (connected_edges_to_preserve > 0)
 			{
 				connected_edges_to_preserve--;
