@@ -12,8 +12,7 @@
           "__guid": "3b7a6771-daf1-4a71-850f-216a44aa423c",
           "GameConfigObject": {
             "_type": "gameobject",
-            "go": "a3e04356-751f-40c2-ac83-6dbae2815dd4",
-            "prefab": null
+            "go": "a3e04356-751f-40c2-ac83-6dbae2815dd4"
           },
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
@@ -44,7 +43,7 @@
           "OnComponentUpdate": null,
           "PropDensity": 0.5,
           "RemoveDeadEnds": true,
-          "RenderDistance": 6,
+          "RenderDistance": 7,
           "RoomActionsPerFrame": 256,
           "RoomChoice": 1,
           "RoomsPerVertex": 5
@@ -89,8 +88,7 @@
               },
               "InfoObject": {
                 "_type": "gameobject",
-                "go": "b0a3c239-3084-4f1c-a879-5de7511edd09",
-                "prefab": null
+                "go": "b0a3c239-3084-4f1c-a879-5de7511edd09"
               },
               "OnComponentDestroy": null,
               "OnComponentDisabled": null,
@@ -100,8 +98,7 @@
               "OnComponentUpdate": null,
               "SettingsObject": {
                 "_type": "gameobject",
-                "go": "f5ef75a2-04f7-4b69-bccc-c36755b129f1",
-                "prefab": null
+                "go": "f5ef75a2-04f7-4b69-bccc-c36755b129f1"
               }
             }
           ]
@@ -137,8 +134,7 @@
               "OnComponentUpdate": null,
               "StartObject": {
                 "_type": "gameobject",
-                "go": "e039a0ce-f80b-4062-89fe-8d50d78dc224",
-                "prefab": null
+                "go": "e039a0ce-f80b-4062-89fe-8d50d78dc224"
               }
             }
           ]
@@ -174,8 +170,7 @@
               "OnComponentUpdate": null,
               "StartObject": {
                 "_type": "gameobject",
-                "go": "e039a0ce-f80b-4062-89fe-8d50d78dc224",
-                "prefab": null
+                "go": "e039a0ce-f80b-4062-89fe-8d50d78dc224"
               }
             }
           ]

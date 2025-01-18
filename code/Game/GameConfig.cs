@@ -85,7 +85,10 @@ public sealed class GameConfig : Component
 	private float _render_distance;
 	[Property] public float RenderDistance
 	{
-		get { return _render_distance; }
+		get
+		{
+			return _render_distance + ((_game_mode == 2 || _game_mode == 3) ? 2 : 0) ;
+		}
 		set
 		{
 			_render_distance = Math.Max(value, 2);

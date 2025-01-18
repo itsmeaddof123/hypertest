@@ -3,18 +3,6 @@ using Sandbox;
 
 public sealed class GameManager : Component
 {
-	// TODO: World Gen Screen
-		// Mode (Minigame)
-		
-	// Settings
-	// [Category("Settings")] [Property] public int Layers { get; set; } // Layers
-	// [Category("Settings")] [Property] public int RoomsPerVertex { get; set; } // Rooms Per Vertex
-	// [Category("Settings")] [Property] public int RoomChoice { get; set; } // Room (Wall Type) Choice
-	// [Category("Settings")] [Property] public float PropDensity { get; set; } // Prop Density
-	// [Category("Settings")] [Property] public float RenderDistance { get; set; } // Render Distance
-	// [Category("Settings")] [Property] public bool CenterSpawn { get; set; } // Center vs Random Spawn
-	// [Category("Settings")] [Property] public int RoomActionsPerFrame { get; set; } // Room Loading Speed
-
 	[Property] public List<GameObject> RoomPrefabs { get; set; }
 	[Property] public PlayerController Player { get; set; }
 	[Property] public CameraComponent Camera { get; set; }
